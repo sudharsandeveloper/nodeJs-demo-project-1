@@ -5,11 +5,20 @@ const path = require('path');
 // for make public as a static location
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.set('view engine', 'ejs');
+
+app.set('views', __dirname + '/views/Admin/auth');
+
 app.get('/register',(req,res) => {
-    res.sendFile(path.join(__dirname,'./view/Admin/auth', 'register.html'));
+    // res.sendFile(path.join(__dirname,'./view/Admin/auth', 'register.html'));
+    res.render('register');
 })
 app.get('/login',(req,res) => {
-    res.sendFile(path.join(__dirname,'./view/Admin/auth', 'login.html'));
+    res.render('login')
+})
+
+app.get('/', (req,res)=>{
+    res.send('Welcome');
 })
 
 // server run
