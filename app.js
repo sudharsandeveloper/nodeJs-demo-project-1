@@ -2,6 +2,7 @@ const express = require('express');
 const app  = express();
 const path = require('path');   
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 const sequelize = require('./database');
 
@@ -9,6 +10,11 @@ const sequelize = require('./database');
 const userRoute = require('./routes/user');
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({ 
+  secret: 'your-secret-key', 
+  resave: true, 
+  saveUninitialized: true 
+}));
 
 app.use('/user', userRoute);
 
