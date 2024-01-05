@@ -1,4 +1,4 @@
-<%- include('../layouts/header', {title :'Admin | Login'}); -%>
+<%- include('../layouts/header', {title :'Login'}); -%>
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="content-wrapper d-flex align-items-center auth">
@@ -27,6 +27,11 @@
                     </div>
                     <a href="#" class="auth-link text-black">Forgot password?</a>
                   </div>
+                  <div class="mb-2">
+                    <button type="button" class="btn btn-block btn-facebook auth-form-btn">
+                      <i class="mdi mdi-facebook me-2"></i>Connect using facebook </button>
+                  </div>
+                  <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="/user/register" class="text-primary">Create</a>
                   </div>
                 </form>
               </div>

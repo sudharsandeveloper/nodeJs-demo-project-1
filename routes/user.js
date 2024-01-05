@@ -14,7 +14,7 @@ const { User } = require("../models");
 
     router.get('/register',(req,res) => {
         // res.sendFile(path.join(__dirname,'./view/Admin/auth', 'register.html'));
-        res.render('register');
+        res.render('./User/auth/register');
     })
 
     router.post('/register', async (req, res) => {
@@ -40,7 +40,7 @@ const { User } = require("../models");
     });
 
     router.get('/login',(req,res) => {
-        res.render('login');
+        res.render('./User/auth/login');
     })
 
     router.post('/login',async (req, res) => {
