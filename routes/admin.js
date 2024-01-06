@@ -7,6 +7,9 @@ const { User } = require('../models');
 const app = express();
 
 router.get('/login',(req, res) => {
+    if(req.session.userId){
+        return res.redirect('/admin/dashboard');
+    }
     res.render('./Admin/auth/login')
 })
 

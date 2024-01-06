@@ -20,6 +20,7 @@ app.use(session({
 app.use('/admin', adminRoute);
 app.use('/user', userRoute);
 
+
 // for make public as a static location
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -33,6 +34,11 @@ app.get('/login',(req,res) => {
 
 app.get('/', (req,res)=>{
     res.send('Welcome');
+})
+
+// 404 page
+app.use((req, res, next) => {
+    res.status(404).render('404');
 })
 
 // server run
