@@ -10,7 +10,7 @@ router.get('/login',(req, res) => {
     if(req.session.userId){
         return res.redirect('/admin/dashboard');
     }
-    res.render('./Admin/auth/login')
+    res.render('./Admin/auth/login', { formData: {} })
 })
 
 router.post('/login',async (req,res) => {
