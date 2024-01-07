@@ -3,6 +3,7 @@ const app  = express();
 const path = require('path');   
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const flash = require('express-flash');
 
 const sequelize = require('./database');
 
@@ -12,10 +13,11 @@ const adminRoute = require('./routes/admin');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ 
-  secret: 'your-secret-key', 
-  resave: true, 
-  saveUninitialized: true 
+    secret: 'your-secret-key', 
+    resave: true, 
+    saveUninitialized: true
 }));
+app.use(flash());
 
 app.use('/admin', adminRoute);
 app.use('/user', userRoute);

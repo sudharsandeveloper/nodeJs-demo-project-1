@@ -14,8 +14,9 @@ router.get('/login',(req, res) => {
 })
 
 router.post('/login',async (req,res) => {
+
     const { email, password } = req.body;
-    // console.log(email, password);
+    const formData = req.body;
 
     try{
         const user = await User.findOne({ where: { email } })
@@ -27,11 +28,12 @@ router.post('/login',async (req,res) => {
                 return res.redirect('/admin/dashboard')
             }
         }
-        res.redirect('/admin/login');
+        req.flash('error', 'Invalid Email/Password');
+        res.render('Admin/auth/login', { formData });
     }
     catch(error){
-        console.error('Error during login: ', error.message)
-        res.status(500).send('Login failed');
+        console.error('Error during login: ', error.message);
+        res.status(500).render('Admin/auth/login', { formData });
     }
 })
 
@@ -48,7 +50,7 @@ router.get('/logout', (req,res) => {
         if (err) {
           return res.status(500).send('Error during logout');
         }
-        // Redirect to the login page or any other appropriate page
+       
         res.redirect('/admin/login');
     });
 })

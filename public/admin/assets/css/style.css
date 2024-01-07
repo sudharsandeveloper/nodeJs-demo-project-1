@@ -4756,7 +4756,7 @@ textarea.form-control-lg {
   border-radius: 0.25rem; }
   .dropdown-menu[data-bs-popper] {
     top: 100%;
-    left: 0;
+    left: -125px;
     margin-top: 0.125rem; }
 
 .dropdown-menu-start {
