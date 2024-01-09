@@ -55,4 +55,8 @@ router.get('/logout', (req,res) => {
     });
 })
 
+router.get('/staff-create', (req,res) => {
+    res.render('./Admin/staff-management/createStaff');
+})
+
 module.exports = router;

@@ -1,4 +1,4 @@
-<%- include('./header', {title :'Admin | Dashboard'}); -%>
+<%- include('./header', {title}); -%>
 <body>
     <div class="container-scroller">
 
@@ -10,7 +10,10 @@
         <%- include('./sidenav'); -%>
         <!-- partial -->
         <div class="main-panel">
+          <div class="content-wrapper">
+            <%- include('./pageHeader'); -%>
             <%- mainContent -%>        
+          </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <%- include('./footer'); -%>
