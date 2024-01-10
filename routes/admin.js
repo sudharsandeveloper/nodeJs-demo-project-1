@@ -59,4 +59,31 @@ router.get('/staff-create', (req,res) => {
     res.render('./Admin/staff-management/createStaff');
 })
 
+router.post('/staff-create',async (req,res) => {
+    const { first_name, last_name, email, password } = req.body;
+    // console.log(first_name, last_name, email, password);
+    const salt = await bcrypt.genSalt(10);
+    const userDetails = {
+        firstName: first_name,
+        lastName: last_name,
+        email: email,
+        password: await bcrypt.hash(req.body.password, salt)
+    }
+    console.log(userDetails);
+    try {
+        // console.log(firstName, lastName, email, password);
+        const newUser = await User.create(userDetails);
+        // console.log('User registered:', newUser.email);
+        req.flash('success', 'User has been created successfully');
+        res.redirect('./user/list');
+    } catch (error) {
+        console.error('Error during registration:', error.message);
+        res.status(500).send('User creation failed.');
+    }
+})
+
+router.get('/user/list', (req,res) => {
+    res.send('asdfa');
+})
+
 module.exports = router;

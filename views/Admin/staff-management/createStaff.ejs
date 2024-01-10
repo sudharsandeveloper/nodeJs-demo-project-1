@@ -5,22 +5,26 @@
       <div class="card-body">
         <h4 class="card-title">Staff details</h4>
         <p class="card-description"></p>
-        <form class="forms-sample">
+        <form class="forms-sample" accept="staff-create" method="post">
           <div class="form-group">
-            <label for="exampleInputName1">Name</label>
-            <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+            <label for="exampleInputName1">First Name</label>
+            <input type="text" name="first_name" class="form-control" id="exampleInputName1" placeholder="First Name">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName1">Last Name</label>
+            <input type="text" name="last_name" class="form-control" id="exampleInputName1" placeholder="Last Name">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail3">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+            <input type="email" name="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword4">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+            <input type="password" name="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword4">Confirm Password</label>
-            <input type="password" class="form-control" id="exampleInputConfirmPassword4" placeholder="Password">
+            <input type="password" name="confirm_password" class="form-control" id="exampleInputConfirmPassword4" placeholder="Password">
           </div>
           <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
           <button class="btn btn-light">Cancel</button>
